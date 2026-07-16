@@ -1,5 +1,6 @@
 #include "rtweekend.h"
 
+#include "cube.h"
 #include "obj_loader.h"
 #include "pyramid.h"
 #include "camera.h"
@@ -14,7 +15,12 @@ int main()
     hittable_list world;
 
     // Materials
-    auto ground = make_shared<lambertian>(color(0.80, 0.80, 0.75));
+    auto checker = make_shared<checker_texture>(
+        0.75,
+        color(0.90, 0.90, 0.90),
+        color(0.15, 0.15, 0.15));
+
+    auto ground = make_shared<lambertian>(checker);
     auto blue = make_shared<lambertian>(color(0.20, 0.45, 0.90));
     auto orange = make_shared<lambertian>(color(0.95, 0.55, 0.15));
     auto metal1 = make_shared<metal>(color(0.90, 0.90, 0.90), 0.05);
@@ -25,6 +31,8 @@ int main()
     auto green = make_shared<lambertian>(color(0.20, 0.80, 0.30));
 
     auto yellow = make_shared<lambertian>(color(0.95, 0.85, 0.20));
+
+    auto purple = make_shared<lambertian>(color(0.65, 0.30, 0.90));
 
     auto light = make_shared<diffuse_light>(color(12, 12, 12));
 
@@ -42,7 +50,12 @@ int main()
         2.2,
         green));
 
-    // OBJ Cube
+    // Cube Primitive
+    world.add(make_shared<cube>(
+        point3(4.8, 0.0, -2.2),
+        1.6,
+        purple));
+
     // OBJ Cube
     world.add(make_shared<obj_loader>(
         "models/cube.obj",
