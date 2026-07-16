@@ -1,16 +1,21 @@
 # Ray Tracing in C++ | Learning & Custom Renderer
 
-A modern C++ ray tracing project built while learning computer graphics and physically based rendering. This repository documents my journey from understanding the fundamentals of ray tracing to gradually developing my own custom renderer.
+![C++](https://img.shields.io/badge/C%2B%2B-17-blue)
+![CMake](https://img.shields.io/badge/CMake-4.4-success)
+![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)
+![Status](https://img.shields.io/badge/Status-Learning-orange)
 
-> **Note:** This project is based on the excellent **Ray Tracing in One Weekend** book series by Peter Shirley. The goal of this repository is to learn, experiment, extend, and build new rendering features while documenting my progress.
+A modern C++ ray tracing project focused on learning computer graphics, physically based rendering, and building a custom ray tracing engine from scratch. This repository documents my progress, experiments, and feature implementations throughout the learning journey.
 
+> **Note:** This project is based on the excellent **Ray Tracing in One Weekend** book series by **Peter Shirley**. The purpose of this repository is to learn, experiment, extend the renderer, and gradually build my own ray tracing engine.
 
 <p align="center">
-  <img src="images/my_first_render.png" alt="First Ray Traced Render" width="800"/>
+  <img src="images/my_first_render.png" alt="First Ray Traced Render" width="850"/>
 </p>
+
 ---
 
-## ✨ Features
+# ✨ Features
 
 - CPU-based Ray Tracer
 - Physically Based Rendering (PBR Concepts)
@@ -26,83 +31,141 @@ A modern C++ ray tracing project built while learning computer graphics and phys
 
 ---
 
-## 🛠 Tech Stack
+# 📈 Current Status
+
+- ✅ Successfully built on Windows
+- ✅ Generated first ray-traced image
+- ✅ CMake project configured
+- 🔄 Learning rendering pipeline
+- 🚀 Building my own renderer step by step
+
+---
+
+# 🛠 Tech Stack
 
 - C++
 - CMake
 - MinGW GCC
-- VS Code
-- Git & GitHub
+- Visual Studio Code
+- Git
+- GitHub
 
 ---
 
-## 📁 Project Structure
+# 📁 Project Structure
 
-```
+```text
 Ray_Tracing/
 │
+├── books/
+├── build/
+├── images/
 ├── src/
+│   ├── external/
 │   ├── InOneWeekend/
 │   ├── TheNextWeek/
 │   └── TheRestOfYourLife/
 │
-├── images/
-├── books/
-├── build/
-└── CMakeLists.txt
+├── CMakeLists.txt
+└── README.md
 ```
 
 ---
 
-## 🚀 Getting Started
+# 🚀 Getting Started
+
+## Clone Repository
+
+```bash
+git clone https://github.com/AlajingiGanesh/Ray_Tracing.git
+cd Ray_Tracing
+```
+
+## Build
 
 ```bash
 mkdir build
 cd build
 cmake .. -G "MinGW Makefiles"
 cmake --build .
+```
+
+## Run
+
+```bash
 .\inOneWeekend.exe > image.ppm
 ```
 
 ---
 
-## 📸 First Render
+# 🖼️ Gallery
 
-Successfully generated the first ray-traced image using the Book 1 renderer.
+### First Ray Traced Render
 
-(Add your rendered image here later.)
+<p align="center">
+  <img src="images/my_first_render.png" width="750">
+</p>
 
 ---
 
-## 🎯 Learning Roadmap
+# 🎯 Learning Roadmap
 
 - [x] Project setup
-- [x] Successful build
-- [x] First rendered image
+- [x] Configure CMake
+- [x] Successful compilation
+- [x] Generate first render
 - [ ] Understand rendering pipeline
-- [ ] Camera system
+- [ ] Ray generation
+- [ ] Camera implementation
 - [ ] Ray-object intersection
 - [ ] Materials
+- [ ] Reflection & Refraction
+- [ ] Texture Mapping
 - [ ] Lighting
-- [ ] Custom scene
+- [ ] Build custom scene
 - [ ] Performance optimization
-- [ ] Build my own renderer
+- [ ] Build my own ray tracing engine
 
 ---
 
-## 📌 Future Improvements
+# 📌 Planned Improvements
 
-- Custom materials
+- Direct PNG export
+- Custom camera controls
+- New materials
 - New geometric primitives
 - Texture mapping
 - HDR environment lighting
-- Multithreading
+- Skybox rendering
+- Motion blur
+- Soft shadows
+- Multithreaded rendering
 - BVH optimization
 - OBJ model loading
-- My own rendering engine features
+- Performance benchmarking
+- Interactive rendering controls
 
 ---
 
-## 🙏 Acknowledgements
+# 📊 Repository Information
 
-This project is inspired by the **Ray Tracing in One Weekend** book series by Peter Shirley. The repository serves as a learning project and a foundation for building my own ray tracing engine.
+| Category | Details |
+|----------|----------|
+| Language | C++ |
+| Build System | CMake |
+| Compiler | MinGW GCC |
+| IDE | Visual Studio Code |
+| Platform | Windows |
+| Rendering | CPU Ray Tracing |
+
+---
+
+# 🙏 Acknowledgements
+
+Special thanks to **Peter Shirley** for the outstanding **Ray Tracing in One Weekend** book series, which serves as the foundation for learning ray tracing and computer graphics.
+
+This repository is maintained as a personal learning project while progressively extending the renderer with new features and custom implementations.
+
+---
+
+## ⭐ If you found this project interesting, consider giving it a star!
