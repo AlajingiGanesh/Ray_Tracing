@@ -52,7 +52,33 @@ class camera {
                         pixel_color += ray_color(r, max_depth, world, lights);
                     }
                 }
-                write_color(std::cout, pixel_samples_scale * pixel_color * exposure);
+                color final_color = pixel_samples_scale * pixel_color * exposure;
+
+                // -------- ACES Filmic Tone Mapping --------
+                auto aces = [](double x)
+                {
+                    const double a = 2.51;
+                    const double b = 0.03;
+                    const double c = 2.43;
+                    const double d = 0.59;
+                    const double e = 0.14;
+
+                    x = (x * (a * x + b)) / (x * (c * x + d) + e);
+
+                    if (x < 0.0)
+                        x = 0.0;
+                    if (x > 1.0)
+                        x = 1.0;
+
+                    return x;
+                };
+
+                final_color = color(
+                    aces(final_color.x()),
+                    aces(final_color.y()),
+                    aces(final_color.z()));
+
+                write_color(std::cout, final_color);
             }
         }
 
