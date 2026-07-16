@@ -1,5 +1,6 @@
 #include "rtweekend.h"
 
+#include "pyramid.h"
 #include "camera.h"
 #include "hittable_list.h"
 #include "material.h"
@@ -20,6 +21,8 @@ int main()
 
     auto red = make_shared<lambertian>(color(0.90, 0.20, 0.20));
 
+    auto green = make_shared<lambertian>(color(0.20, 0.80, 0.30));
+
     auto light = make_shared<diffuse_light>(color(12, 12, 12));
 
     // Ground
@@ -28,6 +31,13 @@ int main()
         vec3(16, 0, 0),
         vec3(0, 0, 16),
         ground));
+
+    // Pyramid
+    world.add(make_shared<pyramid>(
+        point3(3.2, -1.0, 2.2),
+        1.8,
+        2.2,
+        green));
 
     // Spheres
     world.add(make_shared<sphere>(point3(-2, 0, -1), 1.0, blue));
