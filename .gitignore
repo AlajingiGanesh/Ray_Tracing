@@ -1,0 +1,17 @@
+# Build directory
+build/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Executables
+*.exe
+
+# Generated images
+*.ppm
+
+# VS Code
+.vscode/
