@@ -24,13 +24,18 @@ class camera {
     int    max_depth         = 10;   // Maximum number of ray bounces into scene
     color  background;               // Scene background color
 
-    double vfov     = 90;              // Vertical view angle (field of view)
-    point3 lookfrom = point3(0,0,0);   // Point camera is looking from
-    point3 lookat   = point3(0,0,-1);  // Point camera is looking at
-    vec3   vup      = vec3(0,1,0);     // Camera-relative "up" direction
+    double vfov = 90;
 
-    double defocus_angle = 0;  // Variation angle of rays through each pixel
-    double focus_dist = 10;    // Distance from camera lookfrom point to plane of perfect focus
+    point3 lookfrom = point3(0, 0, 0);
+    point3 lookat = point3(0, 0, -1);
+    vec3 vup = vec3(0, 1, 0);
+
+    // -------- Custom Camera Controls --------
+    double camera_roll = 0.0;
+    double exposure = 1.0;
+
+    double defocus_angle = 0;
+    double focus_dist = 10;
 
     void render(const hittable& world, const hittable& lights) {
         initialize();
@@ -47,7 +52,7 @@ class camera {
                         pixel_color += ray_color(r, max_depth, world, lights);
                     }
                 }
-                write_color(std::cout, pixel_samples_scale * pixel_color);
+                write_color(std::cout, pixel_samples_scale * pixel_color * exposure);
             }
         }
 
@@ -83,10 +88,21 @@ class camera {
         auto viewport_height = 2 * h * focus_dist;
         auto viewport_width = viewport_height * (double(image_width)/image_height);
 
-        // Calculate the u,v,w unit basis vectors for the camera coordinate frame.
         w = unit_vector(lookfrom - lookat);
         u = unit_vector(cross(vup, w));
         v = cross(w, u);
+
+        // -------- Camera Roll --------
+        if (camera_roll != 0.0)
+        {
+            auto angle = degrees_to_radians(camera_roll);
+
+            vec3 new_u = std::cos(angle) * u + std::sin(angle) * v;
+            vec3 new_v = -std::sin(angle) * u + std::cos(angle) * v;
+
+            u = new_u;
+            v = new_v;
+        }
 
         // Calculate the vectors across the horizontal and down the vertical viewport edges.
         vec3 viewport_u = viewport_width * u;    // Vector across viewport horizontal edge
@@ -158,7 +174,17 @@ class camera {
 
         // If the ray hits nothing, return the background color.
         if (!world.hit(r, interval(0.001, infinity), rec))
-            return background;
+        {
+
+            vec3 unit_direction = unit_vector(r.direction());
+
+            double t = 0.5 * (unit_direction.y() + 1.0);
+
+            color horizon(0.95, 0.90, 0.75);
+            color zenith(0.35, 0.60, 1.00);
+
+            return (1.0 - t) * horizon + t * zenith;
+        }
 
         scatter_record srec;
         color color_from_emission = rec.mat->emitted(r, rec, rec.u, rec.v, rec.p);
