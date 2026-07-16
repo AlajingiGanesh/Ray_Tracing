@@ -21,7 +21,8 @@ int main()
         color(0.15, 0.15, 0.15));
 
     auto ground = make_shared<lambertian>(checker);
-    auto blue = make_shared<lambertian>(color(0.20, 0.45, 0.90));
+    auto earth_texture = make_shared<image_texture>("earthmap.jpg");
+    auto blue = make_shared<lambertian>(earth_texture);
     auto orange = make_shared<lambertian>(color(0.95, 0.55, 0.15));
     auto metal1 = make_shared<metal>(color(0.90, 0.90, 0.90), 0.05);
     auto glass = make_shared<dielectric>(1.5);
