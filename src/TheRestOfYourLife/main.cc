@@ -103,9 +103,11 @@ int main()
 
     cam.background = color(0.65, 0.82, 1.00);
 
-    cam.vfov = 35;
-    cam.lookfrom = point3(0, 2, 8);
-    cam.lookat = point3(0, 0, 0);
+    cam.vfov = 22;
+
+    cam.lookfrom = point3(-2.8, 1.3, 3.8);
+    cam.lookat = point3(-4.5, 0.5, 1.5);
+
     cam.vup = vec3(0, 1, 0);
 
     cam.defocus_angle = 0;
