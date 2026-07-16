@@ -4,6 +4,10 @@ A modern C++ ray tracing project built while learning computer graphics and phys
 
 > **Note:** This project is based on the excellent **Ray Tracing in One Weekend** book series by Peter Shirley. The goal of this repository is to learn, experiment, extend, and build new rendering features while documenting my progress.
 
+
+<p align="center">
+  <img src="images/my_first_render.png" alt="First Ray Traced Render" width="800"/>
+</p>
 ---
 
 ## ✨ Features
