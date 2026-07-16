@@ -5,6 +5,7 @@
 #include "material.h"
 #include "quad.h"
 #include "sphere.h"
+#include "triangle.h"
 
 int main()
 {
@@ -16,6 +17,8 @@ int main()
     auto orange = make_shared<lambertian>(color(0.95, 0.55, 0.15));
     auto metal1 = make_shared<metal>(color(0.90, 0.90, 0.90), 0.05);
     auto glass = make_shared<dielectric>(1.5);
+
+    auto red = make_shared<lambertian>(color(0.90, 0.20, 0.20));
 
     auto light = make_shared<diffuse_light>(color(12, 12, 12));
 
@@ -31,6 +34,13 @@ int main()
     world.add(make_shared<sphere>(point3(0, 0.2, 1.5), 1.2, glass));
     world.add(make_shared<sphere>(point3(2, 0, -0.5), 1.0, metal1));
     world.add(make_shared<sphere>(point3(0, -0.3, -3), 0.7, orange));
+
+    // Triangle
+    world.add(make_shared<triangle>(
+        point3(-1.5, -1.0, 2.0),
+        point3(0.0, 1.2, 2.0),
+        point3(1.5, -1.0, 2.0),
+        red));
 
     // Ceiling Light
     world.add(make_shared<quad>(
