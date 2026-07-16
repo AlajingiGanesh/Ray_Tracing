@@ -1,43 +1,102 @@
-# Ray Tracing in C++ | Learning & Custom Renderer
+# Custom Ray Tracing Engine in C++
 
 ![C++](https://img.shields.io/badge/C%2B%2B-17-blue)
 ![CMake](https://img.shields.io/badge/CMake-4.4-success)
 ![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)
-![Status](https://img.shields.io/badge/Status-Learning-orange)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 
-A modern C++ ray tracing project focused on learning computer graphics, physically based rendering, and building a custom ray tracing engine from scratch. This repository documents my progress, experiments, and feature implementations throughout the learning journey.
+A custom **CPU-based Ray Tracing Engine** built in modern **C++** using **CMake**. Starting from the *Ray Tracing* book series by **Peter Shirley**, this project has been extended with custom rendering features, geometric primitives, texture mapping, camera enhancements, and OBJ model loading to explore physically based rendering and computer graphics.
 
-> **Note:** This project is based on the excellent **Ray Tracing in One Weekend** book series by **Peter Shirley**. The purpose of this repository is to learn, experiment, extend the renderer, and gradually build my own ray tracing engine.
+> **Acknowledgement:** This project is based on the excellent **Ray Tracing** book series by **Peter Shirley**. The renderer has been extended with additional features and custom implementations as part of my learning journey toward building my own ray tracing engine.
 
 <p align="center">
-  <img src="images/my_first_render.png" alt="First Ray Traced Render" width="850"/>
+  <img src="images/hero_render.png" alt="Custom Ray Tracing Engine Render" width="900"/>
 </p>
+
+---
+
+# 🖼 Gallery
+
+## Featured Render
+
+<p align="center">
+  <img src="images/hero_render.png" alt="Custom Ray Tracing Engine Render" width="900"/>
+</p>
+
+### Features showcased in this render
+
+- 🌍 Earth Texture Mapping
+- 🔺 Triangle Primitive
+- 🔷 Pyramid Primitive
+- 🟪 Procedural Cube
+- 📦 OBJ Mesh Loader
+- 💎 Glass Material
+- ⚙️ Metal Material
+- ♟️ Checker Ground Texture
+- 🎨 ACES Filmic Tone Mapping
+- 📷 Camera Roll & Exposure Control
+- ☁️ Gradient Sky
 
 ---
 
 # ✨ Features
 
-- CPU-based Ray Tracer
-- Physically Based Rendering (PBR Concepts)
-- Diffuse (Lambertian) Materials
-- Metal Materials
-- Dielectric (Glass) Materials
-- Recursive Ray Tracing
+## Rendering
+
+- CPU Ray Tracing
+- Recursive Path Tracing
+- Physically Based Rendering
+- Lambertian Material
+- Metal Material
+- Dielectric (Glass) Material
 - Anti-Aliasing
 - Depth of Field
-- Multiple Scene Rendering
+- Gradient Sky
+- Exposure Control
+- ACES Filmic Tone Mapping
+
+## Geometry
+
+- Sphere
+- Quad
+- Triangle *(Custom)*
+- Pyramid *(Custom)*
+- Procedural Cube *(Custom)*
+- OBJ Mesh Loader *(Custom)*
+
+## Texturing
+
+- Checker Texture
+- Earth Image Texture Mapping
+
+## Camera
+
+- Camera Roll
+- Adjustable Field of View
+- Depth of Field
+
+## Engine
+
+- Modular Renderer Design
 - CMake Build System
-- Cross-Platform Support
+- Modern C++ Architecture
 
 ---
 
-# 📈 Current Status
+# 🚀 Implemented Features
 
-- ✅ Successfully built on Windows
-- ✅ Generated first ray-traced image
-- ✅ CMake project configured
-- 🔄 Learning rendering pipeline
-- 🚀 Building my own renderer step by step
+- ✅ Custom Scene
+- ✅ Camera Roll
+- ✅ Exposure Control
+- ✅ ACES Filmic Tone Mapping
+- ✅ Gradient Sky
+- ✅ Triangle Primitive
+- ✅ Pyramid Primitive
+- ✅ Procedural Cube Primitive
+- ✅ OBJ Mesh Loader
+- ✅ OBJ Position & Scale Support
+- ✅ Checker Ground Texture
+- ✅ Earth Texture Mapping
 
 ---
 
@@ -86,6 +145,7 @@ cd Ray_Tracing
 ```bash
 mkdir build
 cd build
+
 cmake .. -G "MinGW Makefiles"
 cmake --build .
 ```
@@ -93,57 +153,22 @@ cmake --build .
 ## Run
 
 ```bash
-.\inOneWeekend.exe > image.ppm
+.\theRestOfYourLife.exe > image.ppm
 ```
 
 ---
 
-# 🖼️ Gallery
+# 📌 Future Improvements
 
-### First Ray Traced Render
-
-<p align="center">
-  <img src="images/my_first_render.png" width="750">
-</p>
-
----
-
-# 🎯 Learning Roadmap
-
-- [x] Project setup
-- [x] Configure CMake
-- [x] Successful compilation
-- [x] Generate first render
-- [ ] Understand rendering pipeline
-- [ ] Ray generation
-- [ ] Camera implementation
-- [ ] Ray-object intersection
-- [ ] Materials
-- [ ] Reflection & Refraction
-- [ ] Texture Mapping
-- [ ] Lighting
-- [ ] Build custom scene
-- [ ] Performance optimization
-- [ ] Build my own ray tracing engine
-
----
-
-# 📌 Planned Improvements
-
-- Direct PNG export
-- Custom camera controls
-- New materials
-- New geometric primitives
-- Texture mapping
-- HDR environment lighting
-- Skybox rendering
-- Motion blur
-- Soft shadows
-- Multithreaded rendering
-- BVH optimization
-- OBJ model loading
-- Performance benchmarking
-- Interactive rendering controls
+- HDR Environment Lighting
+- Skybox Rendering
+- Motion Blur
+- Soft Shadows
+- Multithreaded Rendering
+- Progressive Rendering
+- BVH Performance Optimization
+- Direct PNG Export
+- Performance Statistics
 
 ---
 
@@ -152,19 +177,19 @@ cmake --build .
 | Category | Details |
 |----------|----------|
 | Language | C++ |
+| Rendering | CPU Path Tracing |
 | Build System | CMake |
 | Compiler | MinGW GCC |
 | IDE | Visual Studio Code |
 | Platform | Windows |
-| Rendering | CPU Ray Tracing |
 
 ---
 
 # 🙏 Acknowledgements
 
-Special thanks to **Peter Shirley** for the outstanding **Ray Tracing in One Weekend** book series, which serves as the foundation for learning ray tracing and computer graphics.
+Special thanks to **Peter Shirley** for creating the outstanding **Ray Tracing** book series, which provided the educational foundation for this project.
 
-This repository is maintained as a personal learning project while progressively extending the renderer with new features and custom implementations.
+This repository represents my exploration of rendering techniques and computer graphics by extending the original implementation with additional rendering features, custom primitives, texture support, and engine enhancements.
 
 ---
 
