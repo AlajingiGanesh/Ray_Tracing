@@ -1,5 +1,6 @@
 #include "rtweekend.h"
 
+#include "obj_loader.h"
 #include "pyramid.h"
 #include "camera.h"
 #include "hittable_list.h"
@@ -23,6 +24,8 @@ int main()
 
     auto green = make_shared<lambertian>(color(0.20, 0.80, 0.30));
 
+    auto yellow = make_shared<lambertian>(color(0.95, 0.85, 0.20));
+
     auto light = make_shared<diffuse_light>(color(12, 12, 12));
 
     // Ground
@@ -38,6 +41,14 @@ int main()
         1.8,
         2.2,
         green));
+
+    // OBJ Cube
+    // OBJ Cube
+    world.add(make_shared<obj_loader>(
+        "models/cube.obj",
+        point3(-4.5, -0.2, 1.5),
+        2.0,
+        yellow));
 
     // Spheres
     world.add(make_shared<sphere>(point3(-2, 0, -1), 1.0, blue));
